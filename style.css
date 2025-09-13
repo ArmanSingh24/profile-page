@@ -3,7 +3,6 @@
   --card: #ffffff;
   --accent: #4f46e5;
   --muted: #6b7280;
-  --radius: 14px;
 }
 
 * {
@@ -20,18 +19,17 @@ body {
   align-items: center;
   justify-content: center;
   padding: 32px;
+  overflow-x: hidden;
 }
 
 .card {
-  width: 100%;
-  max-width: 880px;
+  width: 880px;
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
   padding: 28px;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 24px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -125,20 +123,21 @@ h1 {
   font-size: 13px
 }
 
-@media (max-width:700px) {
+@media (max-width: 845px) {
   .card {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    padding: 20px
+    transform: scale(0.75)
   }
-
-  .photo {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto
+  #email {
+    display: none;
   }
-
-  .right {
-    text-align: left
+}
+@media (max-width: 625px) {
+  .card {
+    flex-direction: column;
+  }
+}
+@media (max-width: 420px) {
+  .card {
+    transform: scale(0.65)
   }
 }
